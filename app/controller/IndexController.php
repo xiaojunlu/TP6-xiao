@@ -16,7 +16,7 @@ class IndexController extends BaseController
 
        // halt($this->getCurrentUser());
         $user = $this->getUserService()->searchUsers(array(
-            'id' => 1
+            'ids' => [1,3] 
         ), array('created_time' => 'DESC'), 0, 2000);
         halt($user);
      //   Event::subscribe('app\biz\user\event\UserEventSubscriber');

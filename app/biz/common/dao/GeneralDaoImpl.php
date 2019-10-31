@@ -19,7 +19,7 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
      */
     public function create(array $fields)
     {
-        $affected = Db::table($this->table)->strict(false)->insert($fields);
+        $affected = $this->db()->table($this->table)->strict(false)->insert($fields);
         if ($affected <= 0) {
             throw $this->createDaoException('Insert error.');
         }
@@ -104,6 +104,7 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
     protected function updateById($id, array $fields)
     {
         $this->db()->table($this->table)->where('id', $id)->update($fields);
+
         return $this->get($id);
     }
 
@@ -240,6 +241,11 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return $builder->field($columns);
     }
 
+    protected function getQueryBuilder($conditions)
+    {
+        return new DynamicQueryBuilder($this->db()->getConnection(), $conditions);
+    }
+
     /**
      * 创建查询构造器
      *
@@ -263,46 +269,13 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
             }
         );
 
-        $builder = $this->db()->table($this->table);
+        $builder = $this->getQueryBuilder($conditions)->table($this->table);
 
         $declares = $this->declares();
         $declares['conditions'] = isset($declares['conditions']) ? $declares['conditions'] : array();
 
         foreach ($declares['conditions'] as $condition) {
-            $conditionName = $this->getConditionName($condition);
-            if (!$this->isWhereInConditions($condition, $conditions)) {
-                continue;
-            }
-
-            if ($this->matchNotInCondition($condition)) {
-                $columnName = $this->getColumnName($condition);
-                $builder->whereNotIn($columnName, $conditions[$conditionName]);
-                continue;
-            }
-
-            //in查询
-            if ($this->matchInCondition($condition)) {
-                $columnName = $this->getColumnName($condition);
-                $builder->whereIn($columnName, $conditions[$conditionName]);
-                continue;
-            }
-
-            //模糊查询
-            if ($likeType = $this->matchLikeCondition($condition)) {
-                //PRE_LIKE
-                if ('pre_like' == $likeType) {
-                    $condition = preg_replace('/pre_like/i', 'LIKE', $condition, 1);
-                    $conditions[$conditionName] = "{$conditions[$conditionName]}%";
-                } elseif ('suf_like' == $likeType) {
-                    $condition = preg_replace('/suf_like/i', 'LIKE', $condition, 1);
-                    $conditions[$conditionName] = "%{$conditions[$conditionName]}";
-                } else {
-                    $conditions[$conditionName] = "%{$conditions[$conditionName]}%";
-                }
-            }
-
-
-            $builder->whereRaw($condition, array($conditionName => $conditions[$conditionName]));
+            $builder->andWhere($condition);
         }
 
         return $builder;
@@ -323,90 +296,5 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         if (!in_array(strtoupper($sort), array('ASC', 'DESC'), true)) {
             throw $this->createDaoException("SQL order by direction is only allowed `ASC`, `DESC`, but you give `{$sort}`.");
         }
-    }
-
-    protected function getConditionName($where)
-    {
-        $matched = preg_match('/:([a-zA-z0-9_]+)/', $where, $matches);
-        if (!$matched) {
-            return false;
-        }
-
-        return $matches[1];
-    }
-
-    protected function getColumnName($where)
-    {
-        $matched = preg_match('/([a-zA-z0-9_]+)/', $where, $matches);
-        if (!$matched) {
-            return false;
-        }
-
-        return $matches[1];
-    }
-
-    /**
-     * 判断查询条件是否合法
-     *
-     * @param [type] $where
-     * @param [type] $conditions
-     * @return boolean
-     */
-    protected function isWhereInConditions($where, $conditions)
-    {
-        $conditionName = $this->getConditionName($where);
-        if (!$conditionName) {
-            return false;
-        }
-
-        return array_key_exists($conditionName, $conditions) && !is_null($conditions[$conditionName]);
-    }
-
-    /**
-     * 匹配模糊查询
-     *
-     * @param [type] $where
-     * @return void
-     */
-    protected function matchLikeCondition($where)
-    {
-        $matched = preg_match('/\s+((PRE_|SUF_)?LIKE)\s+/i', $where, $matches);
-        if (!$matched) {
-            return false;
-        }
-
-        return strtolower($matches[1]);
-    }
-
-    /**
-     * 匹配in查询
-     *
-     * @param [type] $where
-     * @return void
-     */
-    protected function matchInCondition($where)
-    {
-        $matched = preg_match('/\s+(IN)\s+/i', $where, $matches);
-        if (!$matched) {
-            return false;
-        }
-
-        return strtolower($matches[1]);
-    }
-
-    /**
-     * 匹配not in 查询
-     *
-     * @param [type] $where
-     * @return void
-     */
-    protected function matchNotInCondition($where)
-    {
-        $matched = preg_match('/\s+(NOT IN)\s+/i', $where, $matches);
-        if (!$matched) {
-            return false;
-        }
-
-        return strtolower($matches[1]);
     }
 }

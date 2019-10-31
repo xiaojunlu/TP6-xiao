@@ -81,3 +81,34 @@
 [2019-10-31T12:06:53+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.046000s ]
 [2019-10-31T12:06:53+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.046000s ]
 [2019-10-31T12:06:59+08:00][error] [0]SQL order by field is only allowed 'id,updated_time,login_time', but you give `created_time`.[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:309]
+[2019-10-31T12:16:42+08:00][error] [0]Call to a member function select() on null[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:1078]
+[2019-10-31T12:17:50+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::limit()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:135]
+[2019-10-31T12:18:27+08:00][sql] CONNECT:[ UseTime:0.065000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T12:18:27+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.042000s ]
+[2019-10-31T12:18:27+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.046000s ]
+[2019-10-31T12:29:20+08:00][sql] CONNECT:[ UseTime:0.063000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T12:29:20+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.041000s ]
+[2019-10-31T12:29:20+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.040000s ]
+[2019-10-31T12:44:53+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\Connection, instance of think\db\Query given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 246[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:12]
+[2019-10-31T12:45:19+08:00][error] [0]Argument 1 passed to think\db\BaseQuery::__construct() must implement interface think\db\ConnectionInterface, instance of think\db\Query given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 13[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T12:45:24+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 13 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T12:45:41+08:00][error] [0]Argument 1 passed to think\db\BaseQuery::__construct() must implement interface think\db\ConnectionInterface, instance of think\db\Query given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 14[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T12:48:24+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\db\Connection, instance of think\db\Query given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 246[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:12]
+[2019-10-31T12:49:10+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\db\Connection, instance of think\db\Query given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 246[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:12]
+[2019-10-31T12:51:03+08:00][sql] CONNECT:[ UseTime:0.066000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T12:51:03+08:00][error] [10501]SQLSTATE[42000]: Syntax error or access violation: 1103 Incorrect table name ''[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\PDOConnection.php:713]
+[2019-10-31T12:51:24+08:00][sql] CONNECT:[ UseTime:0.083000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T12:51:24+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.054000s ]
+[2019-10-31T12:51:24+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.057000s ]
+[2019-10-31T12:51:45+08:00][sql] CONNECT:[ UseTime:0.075000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T12:51:45+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.052000s ]
+[2019-10-31T12:51:45+08:00][sql] SELECT * FROM `user` WHERE  ( id = 2 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.052000s ]
+[2019-10-31T12:51:59+08:00][sql] CONNECT:[ UseTime:0.066000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T12:51:59+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.044000s ]
+[2019-10-31T12:51:59+08:00][sql] SELECT * FROM `user` WHERE  ( id > 2 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.048000s ]
+[2019-10-31T13:08:11+08:00][sql] CONNECT:[ UseTime:0.067000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T13:08:11+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.045000s ]
+[2019-10-31T13:08:11+08:00][sql] SELECT * FROM `user` WHERE  ( id > 2 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.046000s ]
+[2019-10-31T13:08:37+08:00][sql] CONNECT:[ UseTime:0.075000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T13:08:37+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.051000s ]
+[2019-10-31T13:08:37+08:00][sql] SELECT * FROM `user` WHERE  `id` IN (1,3) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.052000s ]
