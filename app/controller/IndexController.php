@@ -11,14 +11,14 @@ class IndexController extends BaseController
 {
     public function index()
     {
-            $user =  Db::table('user')->where('id', 1)->find();
+          //  $user =  Db::table('user')->where('id', 1)->find();
         //    halt($user);
 
         // halt($this->getCurrentUser());
-        // $user = $this->getUserService()->searchUsers(array(
-        //     'ids' => [1,3] 
-        // ), array('created_time' => 'DESC'), 0, 2000);
-        // halt($user);
+        $user = $this->getUserService()->searchUsers(array(
+            'ids' => [1,3] 
+        ), array('created_time' => 'DESC'), 0, 2000);
+        halt($user);
         Event::subscribe('app\biz\user\event\UserEventSubscriber');
         Event::trigger('user.login', $user);
         // event('user.login', array());

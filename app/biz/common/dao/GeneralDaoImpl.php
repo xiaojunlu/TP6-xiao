@@ -11,6 +11,11 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return app('db');
     }
 
+    public function table()
+    {
+        return $this->table;
+    }
+
     /**
      * 插入记录
      *

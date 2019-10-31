@@ -3,8 +3,6 @@
 namespace app\biz\common;
 
 use app\biz\common\dao\DaoProxy;
-use app\biz\common\dao\ArrayStorage;
-use app\biz\common\dao\FieldSerializer;
 
 class ServiceKernel
 {
@@ -99,7 +97,7 @@ class ServiceKernel
         }
 
         //Dao 代理类 启用 Dao 层的缓存
-        return new DaoProxy($this->pool[$name], new FieldSerializer(), new ArrayStorage());
+        return new DaoProxy($this->pool[$name], app('dao.serializer'), app('array_storage'));
         //return $this->pool[$name];
     }
 

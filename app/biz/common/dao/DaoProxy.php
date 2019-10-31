@@ -128,7 +128,7 @@ class DaoProxy
      * @return void
      */
     protected function search($method, $arguments)
-    {
+    {   
         $strategy = $this->buildCacheStrategy();
         if ($strategy) {
             $cache = $strategy->beforeQuery($this->dao, $method, $arguments);
@@ -292,7 +292,7 @@ class DaoProxy
         }
 
         $this->arrayStorage && $this->arrayStorage->flush();
-
+     
         $strategy = $this->buildCacheStrategy();
         if ($strategy) {
             $strategy->afterUpdate($this->dao, $method, $arguments, $row);
@@ -405,6 +405,7 @@ class DaoProxy
             return $this->cacheStrategy;
         }
 
+       
         if (empty(app('dao.cache.enabled'))) {
             return null;
         }

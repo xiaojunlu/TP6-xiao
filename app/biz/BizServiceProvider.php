@@ -9,7 +9,7 @@ use app\biz\common\dao\FieldSerializer;
 use app\biz\common\dao\cache_strategy\TableStrategy;
 use app\biz\common\dao\cache_strategy\RowStrategy;
 
-class Biz extends Service
+class BizServiceProvider extends Service
 {
     public function register()
     {
@@ -29,6 +29,7 @@ class Biz extends Service
             return new RedisCache($this->app->redis);
         });
 
+        //dao层缓存开关
         $this->app->bind('dao.cache.array_storage', function () {
             return null;
         });
