@@ -7,15 +7,17 @@ use app\BaseController;
 use think\facade\Event;
 use app\biz\common\ServiceKernel;
 
-class Index extends BaseController
+class IndexController extends BaseController
 {
     public function index()
     {
     //    $user =  Db::table('user')->where('id', 1)->find();
     //    halt($user);
 
-        //halt(9999);
-        $user = $this->getUserService()->getUser(1);
+       // halt($this->getCurrentUser());
+        $user = $this->getUserService()->searchUsers(array(
+            'id' => 1
+        ), array('created_time' => 'DESC'), 0, 2000);
         halt($user);
      //   Event::subscribe('app\biz\user\event\UserEventSubscriber');
      //   Event::trigger('user.login');
@@ -37,15 +39,5 @@ class Index extends BaseController
     protected function getUserService()
     {
         return $this->createService('user.UserService');
-    }
-
-    protected function createService($service)
-    {
-        return $this->getServiceKernel()->createService($service);
-    }
-
-    protected function getServiceKernel()
-    {
-        return ServiceKernel::instance();
     }
 }

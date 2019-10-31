@@ -12,12 +12,18 @@ class UserDaoImpl extends GeneralDaoImpl implements UserDao
     public function declares()
     {
         return array(
+            'serializes' => array(
+                'roles' => 'delimiter',
+            ),
+            'orderbys' => array(
+                'id',
+                'created_time',
+                'updated_time',
+                'login_time',
+            ),
             'timestamps' => array(
                 'created_time',
                 'updated_time',
-            ),
-            'serializes' => array(
-                'roles' => 'delimiter',
             ),
             'conditions' => array(
                 'id = :id',

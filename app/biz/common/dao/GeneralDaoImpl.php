@@ -2,49 +2,49 @@
 
 namespace app\biz\common\dao;
 
-use think\facade\Db;
-
 abstract class GeneralDaoImpl implements GeneralDaoInterface
 {
     protected $table = null;
 
-    /**
-     * @return Connection
-     */
     public function db()
     {
-        return Db::connect('mysql')->table('user')->find();
+        return app('db');
     }
 
     /**
-     * 插入数据
+     * 插入记录
      *
-     * @param [type] $fields
+     * @param array $fields
      * @return void
-     * @Description
      */
     public function create(array $fields)
     {
         $affected = Db::table($this->table)->strict(false)->insert($fields);
         if ($affected <= 0) {
-            throw new \Exception('Insert error.', 0);
+            throw $this->createDaoException('Insert error.');
         }
 
-        $lastInsertId = isset($fields['id']) ? $fields['id'] : Db::table($this->table)->getLastInsID();
+        $lastInsertId = isset($fields['id']) ? $fields['id'] : $this->db()->table($this->table)->getLastInsID();
 
         return $this->get($lastInsertId);
     }
 
+    /**
+     * 根据主键id获取记录
+     *
+     * @param [type] $id     主键id
+     * @param array $options
+     * @return void
+     */
     public function get($id, array $options = array())
     {
-        //是否加锁
+        //是否加排他锁
         $lock = isset($options['lock']) && true === $options['lock'];
-
         if ($lock) {
-            return Db::table($this->table)->where(array("id" => $id))->lock(true)->find() ?: null;
+            return $this->db()->table($this->table)->where(array("id" => $id))->lock(true)->find() ?: null;
         }
 
-        return Db::table($this->table)->where(array("id" => $id))->find() ?: null;
+        return $this->db()->table($this->table)->where(array("id" => $id))->find() ?: null;
     }
 
     /**
@@ -52,57 +52,29 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
      *
      * @param [type] $id
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     public function delete($id)
     {
-        return Db::table($this->table)->delete($id);
+        return $this->db()->table($this->table)->delete($id);
     }
-
 
     /**
      * 根据条件删除记录
      *
      * @param array $conditions
      * @return void
-     * @description 
-     * @author
      */
     public function deleteByConditions(array $conditions)
     {
-        return Db::table($this->table)->where($conditions)->delete();
+        return $this->db()->table($this->table)->where($conditions)->delete();
     }
 
     /**
-     * 软删除
+     * 更新记录
      *
-     * @param [type] $conditions
+     * @param [type] $identifier  更新标识
+     * @param array $fields       更新字段
      * @return void
-     * @description 
-     * @author
-     */
-    public function softDelete($conditions)
-    {
-        if (!isset($this->deleteTime)) {
-            throw new \Exception('deleteTime hit.', 0);
-        }
-        return Db::table($this->table)->where($conditions)->useSoftDelete($this->deleteTime, time())->delete();
-    }
-
-
-    /**
-     * 更新数据
-     *
-     * @param [type] $identifier 标识符
-     * @param array $fields 数据
-     * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     public function update($identifier, array $fields)
     {
@@ -110,30 +82,28 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
             return 0;
         }
 
+        //根据主键id更新数据
         if (is_numeric($identifier) || is_string($identifier)) {
-            return $this->updateById($identifier, $fields); //根据id更新数据
+            return $this->updateById($identifier, $fields);
         }
 
+        //根据条件更新数据
         if (is_array($identifier)) {
-            return $this->updateByConditions($identifier, $fields); //根据条件更新数据
+            return $this->updateByConditions($identifier, $fields);
         }
         throw new \Exception('update arguments type error');
     }
 
     /**
-     * 根据id更新数据
+     * 根据主键id更新数据
      *
      * @param [type] $id
-     * @param [type] $fields
+     * @param array $fields
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     protected function updateById($id, array $fields)
     {
-        Db::table($this->table)->where('id', $id)->update($fields);
+        $this->db()->table($this->table)->where('id', $id)->update($fields);
         return $this->get($id);
     }
 
@@ -143,18 +113,14 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
      * @param array $conditions
      * @param array $fields
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     protected function updateByConditions(array $conditions, array $fields)
     {
-        return  $this->createQueryBuilder($conditions)->update($fields);
+        return $this->createQueryBuilder($conditions)->update($fields);
     }
 
     /**
-     * 查询数据
+     * 根据查询条件获取记录列表
      *
      * @param [array] $conditions 条件
      * @param [type] $orderBys 排序
@@ -162,24 +128,28 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
      * @param [type] $limit 查询数量
      * @param array $columns 返回指定字段
      * @return void
-     * @description 
-     * @author
      */
     public function search(array $conditions, $orderBys, $start, $limit, $columns = array())
     {
-        $builder =  $this->createQueryBuilder($conditions);
-        return  $builder->field($columns)->order($orderBys)->limit($start, $limit)->select();
+        $builder = $this->createQueryBuilder($conditions)
+            ->limit($start, $limit);
+
+        $this->addSelect($builder, $columns);
+
+        $declares = $this->declares();
+        foreach ($orderBys ?: array() as $order => $sort) {
+            $this->checkOrderBy($order, $sort, $declares['orderbys']);
+            $builder->order($order, $sort);
+        }
+
+        return  $builder->select()->toArray();
     }
 
     /**
-     * 统计
+     * 根据查询条件统计记录
      *
      * @param [type] $conditions
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     public function count(array $conditions)
     {
@@ -187,57 +157,41 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return $builder->count();
     }
 
-
     /**
-     * 根据数组查询相关字段的数据
+     * 字段in查询获取记录
      *
-     * @param [type] $field     例如findByIds
-     * @param [type] $values    $ids = array(1,2,3)
+     * @param [type] $field   字段名
+     * @param [type] $values  字段查询值范围
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     protected function findInField($field, $values)
     {
         if (empty($values)) {
             return array();
         }
-
-        return Db::table($this->table)->where($field, 'in', $values)->select();
+        return $this->db()->table($this->table)->where($field, 'in', $values)->select()->toArray();
     }
 
-
     /**
-     * 根据条件查询数据
+     * 根据字段和对应值获取记录数据  返回二维数据
      *
-     * @param [type] $fields array('title' => $title)
+     * @param [type] $fields
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     protected function findByFields($fields)
     {
-        return Db::table($this->table)->where($fields)->select();
+        return $this->db()->table($this->table)->where($fields)->select()->toArray();
     }
 
-
     /**
-     * 根据条件查询一条数据
+     * 根据字段和对应值获取记录  如getByIdAndType array('id' => $id, 'type' => $type)
      *
-     * @param [type] $fields getByIdAndType array('id' => $id, 'type' => $type)
+     * @param [type] $fields
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     protected function getByFields($fields)
     {
-        return Db::table($this->table)->where($fields)->find() ?: null;
+        return $this->db()->table($this->table)->where($fields)->find() ?: null;
     }
 
 
@@ -247,10 +201,6 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
      * @param array $ids  更新的记录id值 数组
      * @param array $diffs array('hits' => +1)
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
     public function wave(array $ids, array $diffs)
     {
@@ -265,50 +215,29 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
 
         $sql = "UPDATE $this->table SET " . implode(', ', $sets) . " WHERE id IN ($marks)";
 
-        return Db::execute($sql, array_merge(array_values($diffs), $ids));
+        return $this->db()->execute($sql, array_merge(array_values($diffs), $ids));
     }
 
     /**
-     * 查询数据带分页
+     * 指定记录返回字段
      *
-     * @param [type] $conditions 条件
-     * @param string $orderBys 排序
-     * @param integer $pageSize 
-     * @param array $join
+     * @param [type] $builder
+     * @param [type] $columns
      * @return void
-     * @Description
-     * @example
-     * @author luxiaojun
-     * @since
      */
-    public function searchPage($conditions, $orderBys = '', $pageSize = 20, $filed = ['*'])
+    private function addSelect($builder, $columns)
     {
-        $config = array(
-            'query' => input('param.'),
-            'type' => 'bootstrap', //分页类名
-            'var_page' => 'page' //分页变量
-        );
-        return Db::table($this->table)->alias('a')->field($filed)->where($conditions)->order($orderBys)->paginate($pageSize, false, $config);
-    }
+        if (!$columns) {
+            return $builder->field('*');
+        }
 
-    /**
-     * @param $sql
-     * @return mixed
-     * 执行原生的sql
-     */
-    public function query($sql)
-    {
-        return Db::query($sql);
-    }
+        foreach ($columns as $column) {
+            if (!preg_match('/^\w+$/', $column)) {
+                throw $this->createDaoException('Illegal column name: ' . $column);
+            }
+        }
 
-    public function execute($sql)
-    {
-        return Db::execute($sql);
-    }
-
-    public function table()
-    {
-        return $this->table;
+        return $builder->field($columns);
     }
 
     /**
@@ -334,7 +263,7 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
             }
         );
 
-        $builder = Db::table($this->table);
+        $builder = $this->db()->table($this->table);
 
         $declares = $this->declares();
         $declares['conditions'] = isset($declares['conditions']) ? $declares['conditions'] : array();
@@ -344,8 +273,6 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
             if (!$this->isWhereInConditions($condition, $conditions)) {
                 continue;
             }
-
-            // dump($this->matchNotInCondition($condition));
 
             if ($this->matchNotInCondition($condition)) {
                 $columnName = $this->getColumnName($condition);
@@ -418,6 +345,13 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return $matches[1];
     }
 
+    /**
+     * 判断查询条件是否合法
+     *
+     * @param [type] $where
+     * @param [type] $conditions
+     * @return boolean
+     */
     protected function isWhereInConditions($where, $conditions)
     {
         $conditionName = $this->getConditionName($where);
@@ -428,6 +362,12 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return array_key_exists($conditionName, $conditions) && !is_null($conditions[$conditionName]);
     }
 
+    /**
+     * 匹配模糊查询
+     *
+     * @param [type] $where
+     * @return void
+     */
     protected function matchLikeCondition($where)
     {
         $matched = preg_match('/\s+((PRE_|SUF_)?LIKE)\s+/i', $where, $matches);
@@ -438,6 +378,12 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return strtolower($matches[1]);
     }
 
+    /**
+     * 匹配in查询
+     *
+     * @param [type] $where
+     * @return void
+     */
     protected function matchInCondition($where)
     {
         $matched = preg_match('/\s+(IN)\s+/i', $where, $matches);
@@ -448,6 +394,12 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return strtolower($matches[1]);
     }
 
+    /**
+     * 匹配not in 查询
+     *
+     * @param [type] $where
+     * @return void
+     */
     protected function matchNotInCondition($where)
     {
         $matched = preg_match('/\s+(NOT IN)\s+/i', $where, $matches);

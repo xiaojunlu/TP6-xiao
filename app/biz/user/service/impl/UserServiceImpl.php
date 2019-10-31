@@ -14,6 +14,11 @@ class UserServiceImpl extends BaseService implements UserService
         return !$user ? null : $user;
     }
 
+    public function searchUsers(array $conditions, array $orderBy, $start, $limit, $columns = array())
+    {
+        return $this->getUserDao()->search($conditions, $orderBy, $start, $limit, $columns = array());
+    }
+
     /**
      * @return UserDao
      */

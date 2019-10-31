@@ -1,11 +1,13 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
 
 namespace app;
 
 use think\App;
-use think\exception\ValidateException;
 use think\Validate;
+use app\biz\common\ServiceKernel;
+use think\exception\ValidateException;
 
 /**
  * 控制器基础类
@@ -52,7 +54,7 @@ abstract class BaseController
 
     // 初始化
     protected function initialize()
-    {}
+    { }
 
     /**
      * 验证数据
@@ -91,4 +93,21 @@ abstract class BaseController
         return $v->failException(true)->check($data);
     }
 
+    /**
+     * @return CurrentUser
+     */
+    protected function getCurrentUser()
+    {
+        return $this->getKernel()->getCurrentUser();
+    }
+
+    protected function createService($alias)
+    {
+        return $this->getKernel()->createService($alias);
+    }
+
+    protected function getKernel()
+    {
+        return ServiceKernel::instance();
+    }
 }

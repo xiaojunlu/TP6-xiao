@@ -1,0 +1,83 @@
+[2019-10-31T09:25:19+08:00][sql] CONNECT:[ UseTime:0.063000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:25:19+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.043000s ]
+[2019-10-31T09:25:19+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.043000s ]
+[2019-10-31T09:30:02+08:00][sql] CONNECT:[ UseTime:0.063000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:30:02+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.044000s ]
+[2019-10-31T09:30:02+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.045000s ]
+[2019-10-31T09:31:33+08:00][sql] CONNECT:[ UseTime:0.083000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:31:33+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.056000s ]
+[2019-10-31T09:31:33+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.057000s ]
+[2019-10-31T09:31:34+08:00][sql] CONNECT:[ UseTime:0.072000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:31:34+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.049000s ]
+[2019-10-31T09:31:34+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.048000s ]
+[2019-10-31T09:31:35+08:00][sql] CONNECT:[ UseTime:0.065000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:31:35+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.045000s ]
+[2019-10-31T09:31:35+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.045000s ]
+[2019-10-31T09:32:17+08:00][sql] CONNECT:[ UseTime:0.071000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:32:17+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.049000s ]
+[2019-10-31T09:32:17+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.051000s ]
+[2019-10-31T09:34:52+08:00][sql] CONNECT:[ UseTime:0.076000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:34:52+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.051000s ]
+[2019-10-31T09:34:52+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.054000s ]
+[2019-10-31T09:35:05+08:00][sql] CONNECT:[ UseTime:0.071000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T09:35:05+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.048000s ]
+[2019-10-31T09:35:05+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.047000s ]
+[2019-10-31T10:13:48+08:00][sql] CONNECT:[ UseTime:3.061000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T10:13:48+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.045000s ]
+[2019-10-31T10:13:48+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.046000s ]
+[2019-10-31T10:15:11+08:00][sql] CONNECT:[ UseTime:0.090000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T10:15:11+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.057000s ]
+[2019-10-31T10:15:11+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.060000s ]
+[2019-10-31T11:01:57+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::table()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:242]
+[2019-10-31T11:04:24+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::table()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:242]
+[2019-10-31T11:05:09+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::select()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:251]
+[2019-10-31T11:06:08+08:00][error] [0]Call to a member function get() on array[F:\qifuyunCloud\TP6-xiao\vendor\topthink\framework\src\think\Db.php:71]
+[2019-10-31T11:06:35+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::select()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:251]
+[2019-10-31T11:09:30+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::select()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:251]
+[2019-10-31T11:10:14+08:00][error] [8]未定义数组索引: id_GT[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:64]
+[2019-10-31T11:12:14+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::table()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:242]
+[2019-10-31T11:23:08+08:00][error] [2]Declaration of app\biz\common\dao\DynamicQueryBuilder::where($where) should be compatible with think\db\BaseQuery::where($field, $op = NULL, $condition = NULL)[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:7]
+[2019-10-31T11:23:23+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\Db\Query, instance of think\Db given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:13]
+[2019-10-31T11:24:23+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:29:02+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:29:54+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:30:00+08:00][sql] CONNECT:[ UseTime:0.072000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T11:30:00+08:00][error] [10501]SQLSTATE[42000]: Syntax error or access violation: 1103 Incorrect table name ''[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\PDOConnection.php:713]
+[2019-10-31T11:30:18+08:00][error] [0]Call to a member function get() on array[F:\qifuyunCloud\TP6-xiao\vendor\topthink\framework\src\think\Db.php:71]
+[2019-10-31T11:31:25+08:00][error] [0]Call to undefined method app\biz\common\dao\DynamicQueryBuilder::select()[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:251]
+[2019-10-31T11:35:33+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 29 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:36:58+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 29 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:42:16+08:00][error] [0]Class 'app\biz\common\dao\Db' not found[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:242]
+[2019-10-31T11:42:31+08:00][sql] CONNECT:[ UseTime:0.090000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T11:42:31+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.061000s ]
+[2019-10-31T11:42:31+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 30 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:43:52+08:00][sql] CONNECT:[ UseTime:0.068000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T11:43:52+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.048000s ]
+[2019-10-31T11:43:52+08:00][error] [10501]SQLSTATE[HY000]: General error: 2031 [F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\PDOConnection.php:713]
+[2019-10-31T11:45:04+08:00][error] [0]Too few arguments to function app\biz\common\dao\GeneralDaoImpl::getQueryBuilder(), 1 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 242 and exactly 2 expected[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:214]
+[2019-10-31T11:45:37+08:00][error] [0]Too few arguments to function think\db\BaseQuery::__construct(), 0 passed in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 27 and exactly 1 expected[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:48:26+08:00][error] [2]Declaration of app\biz\common\dao\DynamicQueryBuilder::where($where) should be compatible with think\db\BaseQuery::where($field, $op = NULL, $condition = NULL)[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:8]
+[2019-10-31T11:49:48+08:00][error] [2]Declaration of app\biz\common\dao\DynamicQueryBuilder::where($where) should be compatible with think\db\BaseQuery::where($field, $op = NULL, $condition = NULL)[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:8]
+[2019-10-31T11:50:12+08:00][error] [2]Declaration of app\biz\common\dao\DynamicQueryBuilder::where($where) should be compatible with think\db\BaseQuery::where($field, $op = NULL, $condition = NULL)[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:8]
+[2019-10-31T11:50:14+08:00][error] [2]Declaration of app\biz\common\dao\DynamicQueryBuilder::where($where) should be compatible with think\db\BaseQuery::where($field, $op = NULL, $condition = NULL)[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:8]
+[2019-10-31T11:50:47+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\Db, array given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:12]
+[2019-10-31T11:51:22+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\Db, array given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:12]
+[2019-10-31T11:51:43+08:00][error] [0]Argument 1 passed to think\db\BaseQuery::__construct() must be an instance of think\db\ConnectionInterface, instance of think\Db given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 14[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:52:16+08:00][error] [0]Argument 1 passed to think\db\BaseQuery::__construct() must be an instance of think\db\ConnectionInterface, instance of think\Db given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php on line 14[F:\qifuyunCloud\TP6-xiao\vendor\topthink\think-orm\src\db\BaseQuery.php:76]
+[2019-10-31T11:54:28+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\Db, instance of think\db\Query given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:12]
+[2019-10-31T11:56:03+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DynamicQueryBuilder::__construct() must be an instance of think\db\Connection, instance of think\db\Query given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php on line 216[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DynamicQueryBuilder.php:12]
+[2019-10-31T11:57:29+08:00][sql] CONNECT:[ UseTime:0.078000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T11:57:29+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.053000s ]
+[2019-10-31T11:57:29+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.054000s ]
+[2019-10-31T11:57:29+08:00][error] [0]Argument 1 passed to app\biz\common\dao\DaoProxy::unserializes() must be of the type array, object given, called in F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DaoProxy.php on line 145[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\DaoProxy.php:368]
+[2019-10-31T11:58:21+08:00][sql] CONNECT:[ UseTime:0.065000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T11:58:21+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.045000s ]
+[2019-10-31T11:58:21+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.044000s ]
+[2019-10-31T11:58:35+08:00][sql] CONNECT:[ UseTime:0.080000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T11:58:35+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.054000s ]
+[2019-10-31T11:58:35+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.057000s ]
+[2019-10-31T12:05:11+08:00][error] [8]未定义数组索引: orderbys[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:143]
+[2019-10-31T12:06:53+08:00][sql] CONNECT:[ UseTime:0.067000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T12:06:53+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.046000s ]
+[2019-10-31T12:06:53+08:00][sql] SELECT * FROM `user` WHERE  ( id = 1 ) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.046000s ]
+[2019-10-31T12:06:59+08:00][error] [0]SQL order by field is only allowed 'id,updated_time,login_time', but you give `created_time`.[F:\qifuyunCloud\TP6-xiao\app\biz\common\dao\GeneralDaoImpl.php:309]
