@@ -112,3 +112,6 @@
 [2019-10-31T13:08:37+08:00][sql] CONNECT:[ UseTime:0.075000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
 [2019-10-31T13:08:37+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.051000s ]
 [2019-10-31T13:08:37+08:00][sql] SELECT * FROM `user` WHERE  `id` IN (1,3) ORDER BY `created_time` DESC LIMIT 0,2000 [ RunTime:0.052000s ]
+[2019-10-31T13:42:32+08:00][sql] CONNECT:[ UseTime:0.068000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T13:42:32+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.046000s ]
+[2019-10-31T13:42:32+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.046000s ]

@@ -15,6 +15,7 @@ class UserEventSubscriber extends EventSubscriber
     public function onUserLogin($user)
     {
         // UserLogin事件响应处理
+        dump($user);
         echo "hello userLogin";
     }
 }

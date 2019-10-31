@@ -241,9 +241,10 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
         return $builder->field($columns);
     }
 
-    protected function getQueryBuilder($conditions)
+    protected function filterStartLimit(&$start, &$limit)
     {
-        return new DynamicQueryBuilder($this->db()->getConnection(), $conditions);
+        $start = (int) $start;
+        $limit = (int) $limit;
     }
 
     /**
@@ -284,6 +285,11 @@ abstract class GeneralDaoImpl implements GeneralDaoInterface
     private function createDaoException($message = '', $code = 0)
     {
         return new DaoException($message, $code);
+    }
+
+    protected function getQueryBuilder($conditions)
+    {
+        return new DynamicQueryBuilder($this->db()->getConnection(), $conditions);
     }
 
     private function checkOrderBy($order, $sort, $allowOrderBys)
