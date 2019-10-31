@@ -121,3 +121,36 @@
 [2019-10-31T15:28:58+08:00][sql] CONNECT:[ UseTime:0.098000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
 [2019-10-31T15:28:58+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.065000s ]
 [2019-10-31T15:28:58+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.069000s ]
+[2019-10-31T15:45:31+08:00][sql] CONNECT:[ UseTime:0.074000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T15:45:31+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.050000s ]
+[2019-10-31T15:45:31+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.054000s ]
+[2019-10-31T15:45:34+08:00][sql] CONNECT:[ UseTime:0.065000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T15:45:34+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.043000s ]
+[2019-10-31T15:45:34+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.044000s ]
+[2019-10-31T15:45:45+08:00][sql] CONNECT:[ UseTime:0.068000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T15:45:45+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.046000s ]
+[2019-10-31T15:45:45+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.046000s ]
+[2019-10-31T15:45:58+08:00][sql] CONNECT:[ UseTime:0.062000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T15:45:58+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.042000s ]
+[2019-10-31T15:45:58+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.046000s ]
+[2019-10-31T15:47:41+08:00][sql] CONNECT:[ UseTime:0.068000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T15:47:41+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.046000s ]
+[2019-10-31T15:47:41+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.047000s ]
+[2019-10-31T07:50:09+00:00][error] [0]Call to undefined method app\biz\DefaultServiceProvider::app()[F:\qifuyunCloud\TP6-xiao\app\biz\DefaultServiceProvider.php:18]
+[2019-10-31T07:54:16+00:00][error] [0]class not exists: dao[F:\qifuyunCloud\TP6-xiao\vendor\topthink\framework\src\think\Container.php:133]
+[2019-10-31T07:54:31+00:00][error] [0]class not exists: redis[F:\qifuyunCloud\TP6-xiao\vendor\topthink\framework\src\think\Container.php:133]
+[2019-10-31T16:08:29+08:00][sql] CONNECT:[ UseTime:0.081000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T16:08:29+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.055000s ]
+[2019-10-31T16:08:29+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.055000s ]
+[2019-10-31T08:08:50+00:00][error] [0]class not exists: mult_redis.options[F:\qifuyunCloud\TP6-xiao\vendor\topthink\framework\src\think\Container.php:376]
+[2019-10-31T08:09:35+00:00][error] [0]class not exists: mult_redis.options[F:\qifuyunCloud\TP6-xiao\vendor\topthink\framework\src\think\Container.php:376]
+[2019-10-31T08:09:37+00:00][error] [0]class not exists: mult_redis.options[F:\qifuyunCloud\TP6-xiao\vendor\topthink\framework\src\think\Container.php:376]
+[2019-10-31T08:14:18+00:00][error] [0]Class 'Redis' not found[F:\qifuyunCloud\TP6-xiao\app\biz\RedisServiceProvider.php:28]
+[2019-10-31T08:14:47+00:00][error] [0]由于目标计算机积极拒绝，无法连接。
+[F:\qifuyunCloud\TP6-xiao\app\biz\RedisServiceProvider.php:33]
+[2019-10-31T16:15:51+08:00][sql] CONNECT:[ UseTime:0.102000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T16:15:51+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.056000s ]
+[2019-10-31T16:15:51+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.059000s ]
+[2019-10-31T16:23:19+08:00][sql] CONNECT:[ UseTime:0.073000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T16:23:19+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.051000s ]
+[2019-10-31T16:23:19+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.050000s ]

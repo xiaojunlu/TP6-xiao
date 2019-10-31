@@ -14,6 +14,10 @@ class DefaultServiceProvider extends Service
         $this->app->bind('html_helper',  function () {
             return new HTMLHelper();
         });
+
+        // halt($this->app->array_storage);
+
+        // halt(app('dao.cache.redis_wrapper'));
     }
 
     // 系统服务注册之后，执行boot方法

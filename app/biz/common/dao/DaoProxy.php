@@ -2,8 +2,6 @@
 
 namespace app\biz\common\dao;
 
-use Redis;
-use app\biz\common\cache_strategy\TableStrategy;
 
 class DaoProxy
 {
@@ -407,37 +405,30 @@ class DaoProxy
             return $this->cacheStrategy;
         }
 
-        if (!config('redis.cache_enabled')) {
+        if (empty(app('dao.cache.enabled'))) {
             return null;
         }
 
+        $declares = $this->dao->declares();
+
         // 未指定 cache 策略，则使用默认策略
-        return new TableStrategy($this->getRedisCache());
-    }
-
-    /**
-     * @return Redis
-     */
-    protected function getRedisCache()
-    {
-        $redisOptions = config('redis.options');
-        list($host, $port) = explode(':', $redisOptions['host']);
-        $redis = new Redis();
-        if (!empty($redisOptions['pconnect'])) {
-            $redis->pconnect($host, $port, $redisOptions['timeout']);
-        } else {
-            $redis->connect($host, $port, $redisOptions['timeout'], $redisOptions['reserved'], $redisOptions['retry_interval']);
+        if (!isset($declares['cache'])) {
+            return app('dao.cache.strategy.default');
         }
 
-        $redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
-        if ($redisOptions['key_prefix']) {
-            $redis->setOption(Redis::OPT_PREFIX, $redisOptions['key_prefix']);
-        }
-        if (!empty($redisOptions['password'])) {
-            $redis->auth($redisOptions['password']);
+        // 针对某个 Dao 关闭 Cache
+        if (false === $declares['cache']) {
+            return null;
         }
 
-        return new RedisCache($redis);
+        // 针对某个 Dao 指定 Cache 策略
+        $strategyServiceId = 'dao.cache.strategy.' . strtolower($declares['cache']);
+        $strategyServiceApp = app($strategyServiceId);
+        if (!isset($strategyServiceApp)) {
+            throw new DaoException("Dao %s cache strategy is not defined, please define first in biz container use %s service id.", get_class($this->dao), $strategyServiceId);
+        }
+
+        return $strategyServiceApp;
     }
 
     private function getCacheKey(GeneralDaoInterface $dao, $method, $arguments)
