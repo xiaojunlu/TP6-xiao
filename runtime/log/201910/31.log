@@ -115,3 +115,9 @@
 [2019-10-31T13:42:32+08:00][sql] CONNECT:[ UseTime:0.068000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
 [2019-10-31T13:42:32+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.046000s ]
 [2019-10-31T13:42:32+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.046000s ]
+[2019-10-31T14:52:54+08:00][sql] CONNECT:[ UseTime:0.069000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T14:52:54+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.045000s ]
+[2019-10-31T14:52:54+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.046000s ]
+[2019-10-31T15:28:58+08:00][sql] CONNECT:[ UseTime:0.098000s ] mysql:host=47.105.33.201;port=3306;dbname=fashinel;charset=utf8
+[2019-10-31T15:28:58+08:00][sql] SHOW FULL COLUMNS FROM `user` [ RunTime:0.065000s ]
+[2019-10-31T15:28:58+08:00][sql] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.069000s ]

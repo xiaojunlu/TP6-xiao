@@ -3,8 +3,8 @@
 namespace app\biz\common;
 
 use app\biz\common\dao\DaoProxy;
-use app\biz\common\dao\FieldSerializer;
 use app\biz\common\dao\ArrayStorage;
+use app\biz\common\dao\FieldSerializer;
 
 class ServiceKernel
 {
@@ -87,10 +87,6 @@ class ServiceKernel
             $this->pool[$name] = new $class();
         }
 
-        // if (!empty(app('service_proxy_enabled'))) {
-        //     return new ServiceProxy($this->getClassName('service', $name));
-        // }
-
         return $this->pool[$name];
     }
 
@@ -122,10 +118,6 @@ class ServiceKernel
 
         if ($type == 'dao') {
             return $namespace . '\\' . $module . '\\dao\\impl\\' . $className . 'Impl';
-        }
-
-        if ($type == 'validate') {
-            return $namespace . '\\' . $module . '\\validate\\' . $className;
         }
 
         return $namespace . '\\' . $module . '\\service\\impl\\' . $className . 'Impl';

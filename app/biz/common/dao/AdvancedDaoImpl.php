@@ -42,38 +42,7 @@ abstract class AdvancedDaoImpl extends GeneralDaoImpl implements AdvancedDaoInte
         
         $this->checkFieldNames($columns);
 
-        return Db::table($this->table)->insertAll($rows);
-
-        // $columns = array_keys(reset($rows));
-        // $this->checkFieldNames($columns);
-        // $columnStr = implode(',', $columns);
-
-        // $count = count($rows);
-        // $pageSize = 1000;
-        // $pageCount = ceil($count / $pageSize);
-
-        // for ($i = 1; $i <= $pageCount; ++$i) {
-        //     $start = ($i - 1) * $pageSize;
-        //     $pageRows = array_slice($rows, $start, $pageSize);
-
-        //     $params = array();
-        //     $sql = "INSERT INTO {$this->table} ({$columnStr}) values ";
-        //     foreach ($pageRows as $key => $row) {
-        //         $marks = str_repeat('?,', count($row) - 1) . '?';
-
-        //         if (0 != $key) {
-        //             $sql .= ',';
-        //         }
-        //         $sql .= "({$marks})";
-
-        //         $params = array_merge($params, array_values($row));
-        //     }
-
-        //     Db::execute($sql, $params);
-        //     unset($params);
-        // }
-
-        // return true;
+        return $this->db()->table($this->table)->insertAll($rows);
     }
 
     public function batchUpdate($identifies, $updateColumnsList, $identifyColumn = 'id')
@@ -131,7 +100,7 @@ abstract class AdvancedDaoImpl extends GeneralDaoImpl implements AdvancedDaoInte
         $sql .= " WHERE {$identifyColumn} IN ({$marks})";
         $params = array_merge($params, $identifies);
 
-        return Db::execute($sql, $params);
+        return $this->db()->execute($sql, $params);
     }
 
     protected function checkFieldNames($names)
