@@ -49,5 +49,9 @@ class BizServiceProvider extends Service
         $this->app->bind('dao.cache.strategy.row', function () {
             return new RowStrategy(app('dao.cache.redis_wrapper'), app('dao.metadata_reader'));
         });
+
+        $this->app->bind('lock', function () {
+            return new Lock();
+        });
     }
 }
