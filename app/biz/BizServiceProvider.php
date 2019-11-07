@@ -3,6 +3,7 @@
 namespace app\biz;
 
 use think\Service;
+use app\biz\util\Lock;
 use app\biz\common\dao\RedisCache;
 use app\biz\common\dao\ArrayStorage;
 use app\biz\common\dao\FieldSerializer;

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\biz;
+namespace app\biz\util;
 
 use think\facade\Db;
 
