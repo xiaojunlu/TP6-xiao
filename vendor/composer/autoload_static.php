@@ -9,9 +9,6 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
     public static $files = array (
         '9b552a3cc426e3287cc811caefa3cf53' => __DIR__ . '/..' . '/topthink/think-helper/src/helper.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'abede361264e2ae69ec1eee813a101af' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/abs.php',
         '21a5860fbef5be28db5ddfbc3cca67c4' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/acos.php',
         '1546e3f9d127f2a9bb2d1b6c31c26ef1' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/acosh.php',
@@ -72,15 +69,16 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
         '6ab8ad87a734f276a6bcd5a0fe1289be' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/operations/divideinto.php',
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        '8345e3950e6ed57d914e5db40a35f5ac' => __DIR__ . '/..' . '/topthink/think-debugbar/src/helper.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         't' => 
         array (
             'think\\trace\\' => 12,
-            'think\\debugbar\\' => 15,
             'think\\' => 6,
         ),
         'a' => 
@@ -123,7 +121,6 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
         'D' => 
         array (
             'DeviceDetector\\' => 15,
-            'DebugBar\\' => 9,
         ),
         'C' => 
         array (
@@ -136,10 +133,6 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
         'think\\trace\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/think-trace/src',
-        ),
-        'think\\debugbar\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/topthink/think-debugbar/src',
         ),
         'think\\' => 
         array (
@@ -214,10 +207,6 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
         'DeviceDetector\\' => 
         array (
             0 => __DIR__ . '/..' . '/piwik/device-detector',
-        ),
-        'DebugBar\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar',
         ),
         'Cron\\' => 
         array (

@@ -83,7 +83,7 @@ abstract class BaseService
      * @param [type] $e
      * @return void
      */
-    protected function createNewException($e)
+    protected function createException($e)
     {
         if ($e instanceof AbstractException) {
             throw $e;

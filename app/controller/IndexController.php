@@ -10,6 +10,7 @@ class IndexController extends BaseController
 {
     public function index()
     {
+       // halt(app('api_response_viewer'));
           //  $user =  Db::table('user')->where('id', 1)->find();
         //    halt($user);
 
