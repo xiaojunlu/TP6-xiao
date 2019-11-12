@@ -18,6 +18,7 @@ class IndexController extends BaseController
         $user = $this->getUserService()->searchUsers(array(
             'ids' => [1,3] 
         ), array('created_time' => 'DESC'), 0, 2000);
+        
         halt($user);
         Event::subscribe('app\biz\user\event\UserEventSubscriber');
         Event::trigger('user.login', $user);

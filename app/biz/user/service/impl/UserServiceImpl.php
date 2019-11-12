@@ -17,7 +17,7 @@ class UserServiceImpl extends BaseService implements UserService
 
     public function searchUsers(array $conditions, array $orderBy, $start, $limit, $columns = array())
     {
-        $this->createException(UserException::LOCK_DENIED());
+       // $this->createException(UserException::LOCK_DENIED());
         
         return $this->getUserDao()->search($conditions, $orderBy, $start, $limit, $columns = array());
     }

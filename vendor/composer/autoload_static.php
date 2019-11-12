@@ -78,12 +78,17 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
     public static $prefixLengthsPsr4 = array (
         't' => 
         array (
+            'think\\worker\\' => 13,
             'think\\trace\\' => 12,
             'think\\' => 6,
         ),
         'a' => 
         array (
             'app\\' => 4,
+        ),
+        'W' => 
+        array (
+            'Workerman\\' => 10,
         ),
         'T' => 
         array (
@@ -118,6 +123,10 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
             'League\\Flysystem\\Cached\\' => 24,
             'League\\Flysystem\\' => 17,
         ),
+        'G' => 
+        array (
+            'GatewayWorker\\' => 14,
+        ),
         'D' => 
         array (
             'DeviceDetector\\' => 15,
@@ -130,6 +139,10 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
     );
 
     public static $prefixDirsPsr4 = array (
+        'think\\worker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/topthink/think-worker/src',
+        ),
         'think\\trace\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/think-trace/src',
@@ -143,6 +156,10 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
         'app\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
+        ),
+        'Workerman\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/workerman/workerman',
         ),
         'TiBeN\\' => 
         array (
@@ -203,6 +220,10 @@ class ComposerStaticInit4414e68f0eede55a390fef1c11a46d2b
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
+        'GatewayWorker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/workerman/gateway-worker/src',
         ),
         'DeviceDetector\\' => 
         array (
