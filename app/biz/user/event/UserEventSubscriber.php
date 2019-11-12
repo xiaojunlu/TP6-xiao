@@ -7,6 +7,7 @@ use app\biz\EventSubscriber;
 
 class UserEventSubscriber extends EventSubscriber
 {
+    //自定义订阅方式
     public function subscribe(Event $event)
     {
         $event->listen('user.login', [$this, 'onUserLogin']);

@@ -31,7 +31,7 @@ class Str
     protected static $studlyCache = array();
 
     /**
-     * Convert a value to camel case.
+     * 将值转换为大小写.
      *
      * @param string $value
      *
@@ -64,7 +64,7 @@ class Str
     }
 
     /**
-     * Limit the number of characters in a string.
+     * 限制字符串中的字符数.
      *
      * @param string $value
      * @param int    $limit
@@ -82,7 +82,7 @@ class Str
     }
 
     /**
-     * Convert the given string to lower-case.
+     * 将给定字符串转换为小写.
      *
      * @param string $value
      *
@@ -94,7 +94,7 @@ class Str
     }
 
     /**
-     * Generate a more truly "random" alpha-numeric string.
+     * 生成更真实的“随机”字母数字字符串.
      *
      * @param int $length
      *
@@ -113,7 +113,7 @@ class Str
     }
 
     /**
-     * Convert the given string to upper-case.
+     * 将给定字符串转换为大写.
      *
      * @param string $value
      *

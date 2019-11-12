@@ -15,7 +15,7 @@ class AppKernel
     {
         echo 1111;
         exit;
-
+        
         //初始化核心
         if (!$this->isServiceKernelInit) {
 

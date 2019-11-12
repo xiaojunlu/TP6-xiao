@@ -3,7 +3,6 @@
 namespace app\controller;
 
 use think\facade\Db;
-use app\BaseController;
 use think\facade\Event;
 use app\biz\common\ServiceKernel;
 

@@ -7,7 +7,7 @@ return [
     //事件监听
     'listen'    => [
         'AppInit'  => [
-            'app\\AppInit'
+            'app\\AppKernel'
         ],
         'HttpRun'  => [],
         'HttpEnd'  => [],
